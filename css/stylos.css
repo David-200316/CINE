@@ -1,0 +1,211 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: rgba(30, 41, 59, 0.85);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    --primary-hover: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.2) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.2) 0px, transparent 50%);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-transform: uppercase; 
+}
+
+.contenedor-principal {
+    width: 100%;
+    max-width: 750px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 5px;
+    text-align: center;
+    background: linear-gradient(to right, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.subtitulo {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+.panel-controles {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.btn-principal, .btn-secundario {
+    background: var(--primary-gradient);
+    color: #ffffff;
+    border: none;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+.btn-secundario {
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secundario.filtro-activo {
+    background: #db2777;
+    border-color: #ec4899;
+}
+
+.btn-principal:hover, .btn-secundario:hover {
+    transform: translateY(-2px);
+}
+
+#filtroGenero {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(15, 23, 42, 0.8);
+    color: white;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    font-size: 0.85rem;
+}
+
+#buscar {
+    width: 100%;
+    padding: 12px 18px;
+    background-color: rgba(15, 23, 42, 0.7);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+#buscar::placeholder {
+    color: var(--text-muted);
+}
+
+#buscar:focus, #filtroGenero:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+}
+
+#contador {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    align-self: flex-start;
+    margin: 10px 0;
+}
+
+.tabla-contenedor {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#tablaPeliculas {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color) !important;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+}
+
+#tablaPeliculas thead tr {
+    background-color: rgba(15, 23, 42, 0.9);
+}
+
+#tablaPeliculas th {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color) !important;
+}
+
+#tablaPeliculas td {
+    padding: 12px 14px;
+    color: var(--text-main);
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-color) !important;
+    vertical-align: middle;
+}
+
+#tablaPeliculas tbody tr:last-child td {
+    border-bottom: none !important;
+}
+
+#tablaPeliculas tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+.img-poster {
+    width: 45px;
+    height: 45px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.badge-genero {
+    color: #38bdf8;
+    font-weight: 600;
+}
+
+.btn-fav {
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background: #6366f1;
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.btn-fav.activo {
+    background: #ec4899;
+}
+
+footer {
+    margin-top: 20px;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-muted);
+    width: 100%;
+}
